@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Pulse Web Store</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+   </head>
+   <body>
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="page-title">Carrinho de Compras</div>
+      <div class="demo-container">
+         <h3>Conteúdo</h3>
+         <ul>
+            <li>Comprar Online</li>
+            <li>Página de Adm</li>
+            <li>Reports</li>
+         </ul>
+      </div>
+
+      <th:block th:include="/_footer"></th:block>
+       
+   </body>
+</html>

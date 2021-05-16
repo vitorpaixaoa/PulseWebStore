@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resumo</title>
+<link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<th:block th:include="/_header"></th:block>
+<th:block th:include="/_menu"></th:block>
+
+<div class="page-title">Resumo</div>
+<div class="customer-info-container">
+<h3>Minhas Informações:</h3>
+<ul>
+<li>Nome: <span  th:utext="${myCart.customerInfo.name}"></span></li>
+<li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
+<li>Telefone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
+<li>Endereço: <span th:utext="${myCart.customerInfo.address}"></span></li>
+</ul>
+<h3>Resumo do Carrinho:</h3>
+		<ul>
+			<li>Quantidade:<span th:text="${myCart.quantityTotal}"></span></li>
+			<li>Total: <span id="totalAmount" class="total" th:utext="${myCart.amountTotal}"></span></li>
+		</ul>
+</div>
+<div class="container">
+<div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
+<ul>
+<li><img class="product-image"src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
+</li>
+<li>Código: <span th:utext="${cartLineInfo.productInfo.code}"></span><inputtype="hidden" name="code" th:value="${cartLineInfo.productInfo.code}" /></li>
+<li>Nome: <span th:utext="${cartLineInfo.productInfo.name}"></span></li>
+<li>Preço:<span class="price"th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}"></span>
+</li>
+<li>Quantidade: <span th:utext="${cartLineInfo.quantity}"></span></li>
+<li>Subtotal:<span class="subtotal"th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}"></span>
+</li>
+</ul>
+</div>
+
+	<form method="POST" th:action="@{/shoppingCartConfirmation}">
+
+
+		<a class="navi-item" th:href="@{/shoppingCart}">Editar Carrinho</a>
+		<a class="navi-item" th:href="@{/shoppingCartCustomer}">Editar minhas informações</a>
+		<!-- Send/Save -->
+		<input type="submit" value="Send" class="button-send-sc" />
+	</form>
+
+
+
+
+</div>
+		<th:block th:include="/_footer"></th:block>
+</body>
+</html>
