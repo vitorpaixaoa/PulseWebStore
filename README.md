@@ -53,57 +53,51 @@ Esse sisteminha é uma parte inicial de um e-commerce e permite que o usuário f
 
 
 <p align="center">
-  Voltando para o menu superior podemos olhar um menu 
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
+  Voltando para o menu superior podemos olhar um menu onde clicamos em Lista de produtos para ve os produtos
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/productList.png" alt="Pagina registro" />
 </p>
 
 
-<h3>Login</h3>
 <p align="center">
-  Ao fazer o Login, será redirecionado para a página de Login onde verá 2 opçoes de login (funcionário e Manager)
-   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/login%20page.png" alt="Pagina registro" />
+  Então podemos clicar para adicionar ao carrinho 
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newAddProduto.png" alt="Pagina registro" />
 </p>
 
 <p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
+  então seremos redirecionados para o carrinho onde pode-se escolher entre as opções de frete disponíveis e atualizar o carrinho para continuar o pagamento
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newCart.png" alt="Pagina registro" />
 </p>
 
 <p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
+  então, ao clicar em continuar o pagamento somos redirecionados para página de dados do usuário e então para o checkout ainda dentro do site
+  1.
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newUserInfo.png" alt="Pagina registro" />
+  
 </p>
 
-## 🎨Layout WEB - Controle de contas
 <p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/app-home.png" alt="App Inicial" />
-</p>
-<p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/invoice.png" alt="Registro de receitas" />
-</p>
-<p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/payment.png" alt="Pagamento de plano" />
+  Na página de checkout podemos ver as opções que previamente foram preenchidas e então os dados do pedido.
+  <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newCheckoutPage.png" alt="Pagina registro" />
 </p>
 
-## 🎨Layout WEB - Admin
 <p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/admin.png" alt="Admin" />
+  Ao inserir todos os dados podemos concluir o pedido e somos redirecionados para a página de optin, onde nos retorna o código de rastreio com base no número do pedido
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newConclusion.png" alt="Pagina registro" />
 </p>
 
 <!--layout-->
 ## 🚀  Tecnologias
 - [**HTML** ]()
 - [**CSS**]()
-- [**PHP**]()
-- [**APIs**]()
+- [**JAVA**]()
+- [**SPRINGBOOT**]()
 - [**JQUERY**]()
 - [**MYSQL**]()
 
 
 
 #### Ferramentas
-- [**PHP STORM**]()
-<hr/>
-#### RODANDO APLICAÇÃO
-Para rodar faça configuração no arquivo "/source/boot/config.php", instale o composer, assim como as dependências.
+- [**INTELLIJ**]()
 
 
 <h4 align=center>Desenvolvido por Vitor Paixão <a href="https://www.linkedin.com/in/alan-vitor-paix%C3%A3o-almeida-44651117b/"> <strong>Entre em contato</strong> :)</a></a></h4>
