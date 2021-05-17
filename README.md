@@ -45,6 +45,25 @@ Esse sisteminha é uma parte inicial de um e-commerce e permite que o usuário f
   Ao executar o programa, abra seu navegador na url http://localhos:8080 e verá a página inicial
    <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/homepage.png" alt="Pagina Login" />
 </p>
+
+<p align="center">
+  No canto superior direito há um menu com as opções para um usuário não Logado...
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/menu.png" alt="Pagina registro" />
+</p>
+
+<p align="center">
+  Ao fazer o Login, será redirecionado para a página de Login onde verá 2 opçoes de login (funcionário e Manager)
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/login%20page.png" alt="Pagina registro" />
+</p>
+
+<p align="center">
+   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
+</p>
+
+<p align="center">
+   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
+</p>
+
 <p align="center">
    <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
 </p>
