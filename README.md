@@ -2,7 +2,7 @@
 
 <p align="center">
   <h1> SIMPLE E-COMMERCE - Java Springboot + MySQL </h1>
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/home.png" alt="Pagina inicial" />
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/productList.png" alt="Pagina inicial" />
 </p>
 
 <!-- Badges -->
@@ -23,32 +23,27 @@
 
 <!--Sobre o projeto-->
 ## 💻 Sobre o projeto
-Esse sistema foi desenvolvido na formação FullStack PHP, tem como intuito criar um sistema completo de um SAAS.
+Esse sistema foi desenvolvido no desafio para Ingressar na Pulse.
 <!--Funcionalidades-->
 ## ⚙️Funcionalidades
 
-  Esse sistema conta com um site, onde são alimentados conteúdos em formato de blog, nele o usuário conhece melhor o que tem a oferecer e consegue se registrar, após o cadastro
-  o usuário tem acesso ao software de gestão de contas, onde consegue registrar contas a pagar e a receber assim como suas carteiras. No entanto, algumas funcionalidades somente serão
-  liberadas caso o usuário compre um plano "PRO".
-  O sistema possui segurança para encriptografia de dados, além disso já está integrado à API de pagamento da Pagar.me, onde o usuário pode facilmente registrar seu cartão e fazer a mudança
-  de planos. Além disso, possui também um sistema de email, onde realiza cobranças e algumas outras funções de marketing.
-  Todo o software foi desenvolvido seguindo as PSR-4, um padrão de codificação otimizado internacionalmente para o PHP para uma melhor compreensão e manutenção de código
-  além de contar com bibliotecas através do composer.
+Esse sisteminha é uma parte inicial de um e-commerce e permite que o usuário faça pedidos, crie produtos, crie um carrinho de compras entre outras coisas.
   
 <!--Funcionalidades-->
 ## Como está dividido
  - Versão WEB (Site/blog)
- - Sistema de controle ( Aplicativo Web )
- - Sistema admnistrativo ( APlicativo Web para dono do sistema )
 
 <!--layout-->
 ## 🎨Layout WEB - SITE
 
 <p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/home.png" alt="Pagina inicial" />
+  Para executar o sistema, você precisa ter o MySQL rodando em sua máquina e instalar o "pulse_store.SQL" disponível no repositório. Então ir até 
+  src/main/java/com/exemple/demo/ e exetcutar o arquivo PulseWebStoreApplication como um programa SpringBoot.
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/howToRun.png" alt="Pagina inicial" />
 </p>
 <p align="center">
-   <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/login.png" alt="Pagina Login" />
+  Ao executar o programa, abra seu navegador na url http://localhos:8080 e verá a página inicial
+   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/Images/homepage.png" alt="Pagina Login" />
 </p>
 <p align="center">
    <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
