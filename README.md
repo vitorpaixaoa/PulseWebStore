@@ -51,13 +51,6 @@ Esse sisteminha é uma parte inicial de um e-commerce e permite que o usuário f
    <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newMenu.png" alt="Pagina registro" />
 </p>
 
-
-<p align="center">
-  Voltando para o menu superior podemos olhar um menu onde clicamos em Lista de produtos para ve os produtos
-   <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/productList.png" alt="Pagina registro" />
-</p>
-
-
 <p align="center">
   Então podemos clicar para adicionar ao carrinho 
    <img src="https://github.com/vitorpaixaoa/PulseWebStore/blob/master/src/main/resources/static/images/newAddProduto.png" alt="Pagina registro" />
