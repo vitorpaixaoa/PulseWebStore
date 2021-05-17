@@ -59,7 +59,7 @@ Esse sisteminha é uma parte inicial de um e-commerce e permite que o usuário f
 </p>
 
 <p align="center">
-  
+  Voltando para o menu superior podemos olhar 
    <img src="https://github.com/vitorpaixaoa/fsphp/blob/master/shared/git-images/register.png" alt="Pagina registro" />
 </p>
 
