@@ -1,57 +1,190 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Resumo</title>
-<link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/carousel/">
+
+	<title>Pulse Game Store</title>
+
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/assets/css/carousel.css}">
+	<link rel="stylesheet" type="text/css" href="../static/assets/css/styles.css" th:href="@{/assets/css/styles.css}"/>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+
 </head>
-<body>
-<th:block th:include="/_header"></th:block>
+<body class="bg-dark">
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Resumo</div>
-<div class="customer-info-container">
-<h3>Minhas Informações:</h3>
-<ul>
-<li>Nome: <span  th:utext="${myCart.customerInfo.name}"></span></li>
-<li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
-<li>Telefone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
-<li>Endereço: <span th:utext="${myCart.customerInfo.address}"></span></li>
-</ul>
-<h3>Resumo do Carrinho:</h3>
-		<ul>
-			<li>Quantidade:<span th:text="${myCart.quantityTotal}"></span></li>
-			<li>Total: <span id="totalAmount" class="total" th:utext="${myCart.amountTotal}"></span></li>
-		</ul>
+<div class="container bg-light" style="margin-top: 5%;box-shadow: 0 12px #3c3c3c; border-radius: 30px; padding: 40px; "  >
+	<main>
+		<div class="py-5 text-center">
+			<h2>Concluir Pagamento</h2>
+			<p class="lead">Obrigado por escolher comprar com a gente!</p>
+		</div>
+
+		<div class="row g-5">
+			<div class="col-md-5 col-lg-4 order-md-last">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-primary">Carrinho</span>
+					<span class="badge bg-primary rounded-pill">3</span>
+				</h4>
+				<ul class="list-group mb-3">
+					<li class="list-group-item d-flex justify-content-between lh-sm" th:each="cartLineInfo : ${myCart.cartLines}">
+						<div>
+							<h6 class="my-0" th:utext="${cartLineInfo.productInfo.name}"></h6>
+							<small class="text-muted">Quantidade: <span th:utext="${cartLineInfo.quantity}"></span></small>
+						</div>
+						<span class="text-muted" th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}" ></span>
+					</li>
+
+
+					<li class="list-group-item d-flex justify-content-between lh-sm" >
+						<div>
+							<h6 class="my-0" th:utext="FRETE"></h6>
+						</div>
+						<span class="text-muted" th:utext="${myCart.getShippingValue()}" ></span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between">
+						<span>Total (BRL)</span>
+						<strong th:utext="${myCart.amountTotal}"></strong>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="col-md-7 col-lg-8">
+				<h4 class="mb-3">Dados de Entrega</h4>
+				<form class="needs-validation" method="POST" th:action="@{/shoppingCartConfirmation}" novalidate>
+					<div class="row g-3">
+						<div class="col-sm-12">
+							<label for="firstName" class="form-label">Nome</label>
+							<input type="text" class="form-control" id="firstName" placeholder="" th:value="${myCart.customerInfo.name}" required>
+							<div class="invalid-feedback">
+								Valid first name is required.
+							</div>
+						</div>
+						<br/>
+
+
+						<div class="col-12">
+							<label for="email" class="form-label">Email <span class="text-muted">*</span></label>
+							<input type="email" class="form-control" id="email" th:value="${myCart.customerInfo.email}" placeholder="you@example.com">
+							<div class="invalid-feedback">
+								Por favor, insira um email válido
+							</div>
+						</div>
+
+						<div class="col-12">
+							<label for="address" class="form-label">Endereço</label>
+							<input type="text" class="form-control" id="address" th:value="${myCart.customerInfo.address}" placeholder="1234 Main St..." required>
+							<div class="invalid-feedback">
+								O endereço não pode ficar vazio
+							</div>
+						</div>
+						<br/>
+
+						<div class="col-md-12">
+							<input type="text" class="form-control" id="zip" placeholder="ZIP" required>
+							<div class="invalid-feedback">
+								Zip code required.
+							</div>
+						</div>
+					</div>
+
+					<hr class="my-4">
+
+					<h4 class="mb-3">Método de Pagamento</h4>
+
+					<div class="my-3">
+						<div class="form-check">
+							<input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+							<label class="form-check-label" for="credit">Credit card</label>
+						</div>
+						<div class="form-check">
+							<input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+							<label class="form-check-label" for="debit">Debit card</label>
+						</div>
+					</div>
+
+					<div class="row gy-3">
+						<div class="col-md-6">
+							<label for="cc-name" class="form-label">Name on card</label>
+							<input type="text" class="form-control" id="cc-name" placeholder="" required>
+							<small class="text-muted">Full name as displayed on card</small>
+							<div class="invalid-feedback">
+								Name on card is required
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="cc-number" class="form-label">Credit card number</label>
+							<input type="text" class="form-control" id="cc-number" placeholder="" required>
+							<div class="invalid-feedback">
+								Credit card number is required
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<label for="cc-expiration" class="form-label">Expiration</label>
+							<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+							<div class="invalid-feedback">
+								Expiration date required
+							</div>
+						</div>
+
+						<div class="col-md-3">
+							<label for="cc-cvv" class="form-label">CVV</label>
+							<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+							<div class="invalid-feedback">
+								Security code required
+							</div>
+						</div>
+					</div>
+
+					<hr class="my-4">
+
+						<a class="navi-item" th:href="@{/shoppingCart}">Editar Carrinho</a>
+						<a class="navi-item" th:href="@{/shoppingCartCustomer}">Editar minhas informações</a>
+						<button class="w-100 btn btn-primary btn-lg" type="submit">FINALIZAR PEDIDO</button>
+
+
+				</form>
+			</div>
+		</div>
+	</main>
+
 </div>
-<div class="container">
-<div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
-<ul>
-<li><img class="product-image"src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
-</li>
-<li>Código: <span th:utext="${cartLineInfo.productInfo.code}"></span><inputtype="hidden" name="code" th:value="${cartLineInfo.productInfo.code}" /></li>
-<li>Nome: <span th:utext="${cartLineInfo.productInfo.name}"></span></li>
-<li>Preço:<span class="price"th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}"></span>
-</li>
-<li>Quantidade: <span th:utext="${cartLineInfo.quantity}"></span></li>
-<li>Subtotal:<span class="subtotal"th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}"></span>
-</li>
-</ul>
-</div>
 
-	<form method="POST" th:action="@{/shoppingCartConfirmation}">
+<script>window.jQuery || document.write('<script  th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"><\/script>')</script>
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script>
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+	(function () {
+		'use strict'
 
+		// Fetch all the forms we want to apply custom Bootstrap validation styles to
+		var forms = document.querySelectorAll('.needs-validation')
 
-		<a class="navi-item" th:href="@{/shoppingCart}">Editar Carrinho</a>
-		<a class="navi-item" th:href="@{/shoppingCartCustomer}">Editar minhas informações</a>
-		<!-- Send/Save -->
-		<input type="submit" value="Send" class="button-send-sc" />
-	</form>
+		// Loop over them and prevent submission
+		Array.prototype.slice.call(forms)
+				.forEach(function (form) {
+					form.addEventListener('submit', function (event) {
+						if (!form.checkValidity()) {
+							event.preventDefault()
+							event.stopPropagation()
+						}
 
-
-
-
-</div>
-		<th:block th:include="/_footer"></th:block>
+						form.classList.add('was-validated')
+					}, false)
+				})
+	})()
+</script>
 </body>
 </html>

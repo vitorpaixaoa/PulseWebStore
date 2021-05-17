@@ -7,7 +7,12 @@ public class CartInfo {
 
 	@Override
 	public String toString() {
-		return "CartInfo [orderNum=" + orderNum + ", customerInfo=" + customerInfo + ", cartLines=" + cartLines + "]";
+		return "CartInfo{" +
+				"orderNum=" + orderNum +
+				", customerInfo=" + customerInfo +
+				", cartLines=" + cartLines +
+				", shippingValue=" + shippingValue +
+				'}';
 	}
 
 	private int orderNum;
@@ -15,6 +20,17 @@ public class CartInfo {
 	private CustomerInfo customerInfo;
 
 	private final List<CartLineInfo> cartLines = new ArrayList<CartLineInfo>();
+
+	public Integer getShippingValue() {
+		return shippingValue;
+	}
+
+	public void setShippingValue(Integer shippingValue) {
+		this.shippingValue = shippingValue;
+	}
+
+	private Integer shippingValue;
+
 
 	public CartInfo() {
 
@@ -58,6 +74,8 @@ public class CartInfo {
 			line.setProductInfo(productInfo);
 			this.cartLines.add(line);
 		}
+
+		this.setShippingValue(150);
 		int newQuantity = line.getQuantity() + quantity;
 		if (newQuantity <= 0) {
 			this.cartLines.remove(line);
@@ -81,6 +99,8 @@ public class CartInfo {
 			}
 		}
 	}
+
+
 
 	public void removeProduct(ProductInfo productInfo) {
 		CartLineInfo line = this.findLineByCode(productInfo.getCode());
@@ -110,6 +130,8 @@ public class CartInfo {
 		for (CartLineInfo line : this.cartLines) {
 			total += line.getAmount();
 		}
+
+		total += this.getShippingValue();
 		return total;
 	}
 
@@ -121,6 +143,11 @@ public class CartInfo {
 			}
 		}
 
+	}
+
+	public  void updateShipping(Integer shippingValue){
+
+		this.setShippingValue(shippingValue);
 	}
 
 }

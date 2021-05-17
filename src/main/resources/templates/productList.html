@@ -1,50 +1,85 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Lista de Produtos</title>
-<link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/carousel/">
+
+    <title>Pulse Game Store</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/carousel.css}">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/styles.css" th:href="@{/assets/css/styles.css}"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
-<body>
-<th:block th:include="/_header"></th:block>
+<body style="background: #000000; color: white;">
+
+
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Lista de Produtos</div>
+<div class="wrapper">
 
-<div class="product-preview-container" th:each="prodInfo : ${paginationProducts.list}">
-<ul>
-<li><img class="product-image"
-th:src="@{|/productImage?code=${prodInfo.code}|}" /></li>
-<li>Código: <span th:utext="${prodInfo.code}"></span></li>
-<li>Nome: <span th:utext="${prodInfo.name}"></span></li>
-<li>Preço: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
-<li>
-<a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Comprar</a>
-</li>
-<!-- For Manager edit Product -->
-<th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
-<li>
-<a style="color:red;"
-th:href="@{|/admin/product?code=${prodInfo.code}|}">Editar Produto</a>
-</li>
-</th:block>
-</ul>
+
+    <div class="container" style="padding-top: 10%;">
+        <div>
+            <h1>
+                Lista de Produtos
+            </h1>
+        </div>
+        <hr/>
+        <div class="row g-1">
+            <div class="col-md-3" th:each="prodInfo : ${paginationProducts.list}">
+                <div class="card p-3" >
+                    <div class="text-center"><img th:src="@{|/productImage?code=${prodInfo.code}|}" width="200" height="200" style="border-radius: 10px;"></div>
+                    <div class="product-details"><span  style="color: #0f0f0f;"  class="font-weight-bold d-block" th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span>
+                        <span th:utext="${prodInfo.name}" style="color: #0f0f0f;"></span>
+                        <div class="buttons d-flex flex-row">
+                            <div class="cart"><i style="color: #5cb85c" class="fa fa-shopping-cart"></i></div>
+                            <a th:href="@{|/buyProduct?code=${prodInfo.code}|}">
+                                <button class="btn btn-success cart-button btn-block" ><span class="dot">+</span>Adc. no Carrinho
+                                </button>
+                            </a>
+
+                        </div>
+                        <div class="weight"><small></small></div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<br/>
-<div class="page-navigator" th:if="${paginationProducts.totalPages > 1}">
-<th:block th:each="page : ${paginationProducts.navigationPages}">
 
-<a th:href="@{|/productList?page=${page}|}" th:if="${page != -1}"
-class="nav-item" th:utext="${page}"></a>
+<script>window.jQuery || document.write('<script  th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"><\/script>')</script>
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script>$('.carousel').carousel()</script>
 
-<span class="nav-item" th:if="${page == -1}"> ... </span>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
 
-</th:block>
-</div>
 
-<th:block th:include="/_footer"></th:block>
+        const cartButtons = document.querySelectorAll('.cart-button');
 
+        cartButtons.forEach(button => {
+
+            button.addEventListener('click',cartClick);
+
+        });
+
+        function cartClick(){
+            let button =this;
+            button.classList.add('clicked');
+        }
+
+
+
+    });
+</script>
 </body>
 </html>

@@ -1,26 +1,38 @@
-<div class="menu-container"
-xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
-<a th:href="@{/}">Início</a>
-|
-<a th:href="@{/productList}">
-Lista de Produtos
-</a>
-|
-<a th:href="@{/shoppingCart}">
-Meu Carrinho
-</a>
-|
-<th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
-<a th:href="@{/admin/orderList}">
-Pedidos
-</a>
-|
-</th:block>
-<th:block sec:authorize="hasRole('ROLE_MANAGER')">
-<a th:href="@{/admin/product}">
-Criar Produto
-</a>
-|
-</th:block>
-</div>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background: #0f0f0f">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">PULSE GameStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/productList}">Lista de Podutos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/shoppingCart}">Meu Carrinho</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/login}">Login</a>
+                </li>
+
+                <th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/orderList}">Lista de Pedidos</a>
+                </li>
+                </th:block >
+
+                <th:block sec:authorize="hasRole('ROLE_MANAGER')">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/product}">Criar Produtos</a>
+                </li>
+                </th:block>
+            </ul>
+        </div>
+    </div>
+</nav>

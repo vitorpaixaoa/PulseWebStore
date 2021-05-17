@@ -1,25 +1,131 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8">
-      <title>Pulse Web Store</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
-   </head>
-   <body>
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
-       
-      <div class="page-title">Carrinho de Compras</div>
-      <div class="demo-container">
-         <h3>Conteúdo</h3>
-         <ul>
-            <li>Comprar Online</li>
-            <li>Página de Adm</li>
-            <li>Reports</li>
-         </ul>
-      </div>
 
-      <th:block th:include="/_footer"></th:block>
-       
-   </body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/carousel/">
+
+    <title>Pulse Game Store</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/carousel.css}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body style="background: #000000; color: white;">
+
+
+
+<header>
+
+</header>
+
+<main>
+    <th:block th:include="/_menu"></th:block>
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active bg-black">
+                <img class="first-slide" th:src="@{/images/pulse.jpg}" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Example headline.</h1>
+                        <p>Some representative placeholder content for the first slide of the carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item bg-black">
+                <img class="second-slide" th:src="@{/images/cadeira-razer.jpg}" alt="Second slide"><rect width="100%" height="100%" fill="#777"/></svg>
+
+                <div class="container ">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Some representative placeholder content for the second slide of the carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item bg-black">
+                <img class="third-slide " th:src="@{/images/rtx.jpg}" alt="Third slide" >
+
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>One more for good measure.</h1>
+                        <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev bg-transparent" style="border: none;" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next bg-transparent" style="border: none;" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img-circle" th:src="@{/images/perifericos-gamer.jpg}" alt="Generic placeholder image"
+                     width="140" height="140" style="border-radius: 50%">
+                <h2>Periféricos</h2>
+                <p>Periféricos - Os Melhores Periféricos Gamer do Brasil para Computador com o Melhor Preço, você só
+                    encontra aqui na Pulse Store! </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-lg-4">
+                <img class="img-circle" th:src="@{/images/cpu-gamer.jpg}" alt="Generic placeholder image" width="140"
+                     height="140" style="border-radius: 50%">
+                <h2>Cpu Completa</h2>
+                <p>ompre PC Gamer com placas de vídeo e processadores de alta performance na Pulse Store!</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+
+
+            <div class="col-lg-4">
+                <img class="img-circle" th:src="@{/images/componente-gamer.jpg}" alt="Generic placeholder image"
+                     width="140"
+                     height="140" style="border-radius: 50%">
+                <h2>Componentes</h2>
+                <p>Hardware. Encontre Peças para PC Gamer ideais para sua máquina. Coolers, fontes, placas mãe, rede, de
+                    vídeo, processadores e muito mais!</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <p>&copy; Vitor Paixão &middot; <a href="https://github.com/vitorpaixaoa/"> Visit my git </a> </p>
+    </footer>
+</main>
+
+
+<script>window.jQuery || document.write('<script  th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"><\/script>')</script>
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script>$('.carousel').carousel()</script>
+
+</body>
 </html>

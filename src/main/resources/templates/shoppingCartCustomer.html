@@ -1,61 +1,96 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Informaçoes do Comprador</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/carousel/">
+
+    <title>Pulse Game Store</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/carousel.css}">
+    <link rel="stylesheet" type="text/css" href="../static/assets/css/styles.css" th:href="@{/assets/css/styles.css}"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+
 </head>
-<body>
-<th:block th:include="/_header"></th:block>
+<body style="background: #000000;">
+
+
 <th:block th:include="/_menu"></th:block>
 
-<div class="page-title">Insira Os dados do comprador</div>
+<div class="wrapper" style="color: white;">
 
-<form method="POST" th:object="${customerForm}" th:action="@{/shoppingCartCustomer}">
+    <div class="container mt-5 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="p-2 text-white">
+                    <h4>Detalhes do cliente</h4>
+                    <a class="text-white" th:href="@{/productList}">Adicionar mais produtos </a>
+                </div>
 
-    <table>
-        <tr>
-            <td>Nome *</td>
-            <td><input th:field="*{name}"/></td>
-            <td>
+
+                <div class="page-title">Insira Os dados do comprador</div>
+
+                <form method="POST" th:object="${customerForm}" th:action="@{/shoppingCartCustomer}">
+
+                    <table>
+                        <tr>
+                            <td>Nome *</td>
+                            <td><input th:field="*{name}"/></td>
+                            <td>
 <span class="error-message"
       th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
-            </td>
-        </tr>
-        <tr>
-            <td>email *</td>
-            <td><input th:field="*{email}"/></td>
-            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>email *</td>
+                            <td><input th:field="*{email}"/></td>
+                            <td>
 <span class="error-message"
       th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
-            </td>
-        </tr>
-        <tr>
-            <td>Telefone *</td>
-            <td><input th:field="*{phone}"/></td>
-            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Telefone *</td>
+                            <td><input th:field="*{phone}"/></td>
+                            <td>
 <span class="error-message"
       th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
-            </td>
-        </tr>
-        <tr>
-            <td>Endereço *</td>
-            <td><input th:field="*{address}"/></td>
-            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Endereço *</td>
+                            <td><input th:field="*{address}"/></td>
+                            <td>
 <span class="error-message"
       th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
-            </td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td><input type="submit" value="Submit"/> <input type="reset"
-                                                             value="Reset"/></td>
-        </tr>
-    </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input type="submit" value="Submit"/> <input type="reset"
+                                                                             value="Reset"/></td>
+                        </tr>
+                    </table>
 
-</form>
+                </form>
 
 
-<th:block th:include="/_footer"></th:block>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>window.jQuery || document.write('<script  th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"><\/script>')</script>
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script>$('.carousel').carousel()</script>
+
 </body>
 </html>
